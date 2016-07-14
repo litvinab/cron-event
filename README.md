@@ -1,2 +1,2 @@
 # cron-event
-Symfony2 bundle to set cron based timers and events tasks. It generates events inside application based on timers stored in DB
+Symfony2 bundle to set and run cron based timers and events. It generates events inside application based on timers stored in DB
