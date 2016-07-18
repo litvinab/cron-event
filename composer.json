@@ -14,5 +14,10 @@
     "php": ">=5.5",
     "symfony/framework-bundle": "~2.1",
     "symfony/security-bundle": "~2.1"
+  },
+  "autoload":{
+    "psr-0":{
+      "Litvinab\\CronEventBundle":""
+    }
   }
 }
