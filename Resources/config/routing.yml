@@ -1,0 +1,15 @@
+litvinab_cron_homepage:
+    path:     /
+    defaults: { _controller: LitvinabCronEventBundle:CronEventManager:index }
+
+litvinab_cron_show:
+    path:     /show
+    defaults: { _controller: LitvinabCronEventBundle:CronEventManager:show }
+
+litvinab_cron_remove:
+    path:     /remove
+    defaults: { _controller: LitvinabCronEventBundle:CronEventManager:remove }
+
+litvinab_cron_run:
+    path:     /run
+    defaults: { _controller: LitvinabCronEventBundle:CronEventManager:run }
