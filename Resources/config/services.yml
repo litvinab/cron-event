@@ -1,0 +1,33 @@
+imports:
+    - { resource: logs.yml }
+
+parameters:
+       litvinab.cron-event.general.event.class: Litvinab\CronEventBundle\Events\LitvinabEvent
+       litvinab.cron-event.general.listener.class: Litvinab\CronEventBundle\EventListener\CronListener
+
+services:
+      litvinab.repository.schedule:
+         class: Doctrine\ODM\DocumentRepository
+         factory_service: doctrine_mongodb.odm.document_manager
+         factory_method: getRepository
+         arguments:
+           - Litvinab\CronEventBundle\Document\Schedule
+
+      litvinab.model.schedule:
+         class: Litvinab\CronEventBundle\Model\ScheduleModel
+         arguments:
+           - "@litvinab.repository.schedule"
+           - "@doctrine.odm.mongodb.document_manager"
+
+      litvinab.cron-event.manager:
+         class: Litvinab\CronEventBundle\Service\CronManager
+         calls:
+            - [setDispatcher, [@event_dispatcher]]
+            - [setScheduleModel, [@litvinab.model.schedule]]
+
+      kernel.listener.cron_manager:
+         class: Litvinab\CronEventBundle\EventListener\CronListener
+         arguments:
+             - "@litvinab.cron-event.manager"
+         tags:
+             - { name: kernel.event_listener, event: cron.run, method: onCron }

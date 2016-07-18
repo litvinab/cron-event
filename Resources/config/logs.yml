@@ -1,0 +1,30 @@
+parameters:
+    litvinab.cron-event.streamhandler.class:        Monolog\Handler\StreamHandler
+    litvinab.cron-event.streamhandler.level:        %litvinab.cron-event.logger.class%::DEBUG
+
+    litvinab.cron-event.firephphandler.class:       Monolog\Handler\FirePHPHandler
+
+    litvinab.cron-event.logger.class:               Monolog\Logger
+    litvinab.cron-event.logger.name:                cron
+    litvinab.cron-event.logger.logs_file_path:      %kernel.logs_dir%/%litvinab.cron-event.logger.name%.log
+
+services:
+    litvinab.cron-event.streamhandler:
+        class: %litvinab.cron-event.streamhandler.class%
+        arguments:
+          - %litvinab.cron-event.logger.logs_file_path%
+          - %litvinab.cron-event.streamhandler.level%
+
+    litvinab.cron-event.firephphandler:
+        class: %litvinab.cron-event.firephphandler.class%
+
+    litvinab.cron-event.logger.parent:
+        abstract: true
+        class: %litvinab.cron-event.logger.class%
+        calls:
+          - [pushHandler, [@litvinab.cron-event.streamhandler, @litvinab.cron-event.firephphandler]]
+
+    litvinab.cron-event.logger:
+        parent: litvinab.cron-event.logger.parent
+        arguments:
+          - %litvinab.cron-event.logger.name%
