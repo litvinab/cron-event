@@ -5,7 +5,7 @@ namespace Litvinab\Bundle\CronEventBundle;
 use Symfony\Component\HttpKernel\Bundle\Bundle;
 
 /**
- * Class LitvinabCronEventBundle
+ * Class CronEventBundle
  *
  * @package Litvinab\Bundle\CronEventBundle
  */
