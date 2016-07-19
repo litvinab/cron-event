@@ -1,15 +1,15 @@
 <?php
 
-namespace Litvinab\CronEventBundle\Repository;
+namespace Litvinab\Bundle\CronEventBundle\Repository;
 
 use Doctrine\ODM\MongoDB\DocumentRepository;
-use Litvinab\CronEventBundle\Document\Schedule;
+use Litvinab\Bundle\CronEventBundle\Document\Schedule;
 use Doctrine\MongoDB\Query\Query as QueryBuilder;
 
 /**
  * Class ScheduleRepository
  *
- * @package Litvinab\CronEventBundle\Repository
+ * @package Litvinab\Bundle\CronEventBundle\Repository
  */
 class ScheduleRepository extends DocumentRepository
 {

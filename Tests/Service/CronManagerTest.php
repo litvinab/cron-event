@@ -1,16 +1,16 @@
 <?php
 
 
-namespace Litvinab\CronEventBundle\Tests\Service;
+namespace Litvinab\Bundle\CronEventBundle\Tests\Service;
 
 use Litvinab\Api10Bundle\Tests\TestCase\LitvinabServiceTestCase;
-use Litvinab\CronEventBundle\Model\ScheduleModel;
-use Litvinab\CronEventBundle\Service\CronManager;
+use Litvinab\Bundle\CronEventBundle\Model\ScheduleModel;
+use Litvinab\Bundle\CronEventBundle\Service\CronManager;
 
 /**
  * Class CronManagerTest
  *
- * @package Litvinab\CronEventBundle\Tests\Service
+ * @package Litvinab\Bundle\CronEventBundle\Tests\Service
  */
 class CronManagerTest extends LitvinabServiceTestCase
 {
@@ -19,9 +19,9 @@ class CronManagerTest extends LitvinabServiceTestCase
      */
     public function testRunSchedules()
     {
-        $scheduleDocument = $this->getMockObject('Litvinab\CronEventBundle\Document\Schedule');
+        $scheduleDocument = $this->getMockObject('Litvinab\Bundle\CronEventBundle\Document\Schedule');
 
-        $model = $this->getMockObject('Litvinab\CronEventBundle\Model\ScheduleModel', ['updateAllTypeStatus', 'getExpiredAndEnabledSchedules']);
+        $model = $this->getMockObject('Litvinab\Bundle\CronEventBundle\Model\ScheduleModel', ['updateAllTypeStatus', 'getExpiredAndEnabledSchedules']);
         $this->setMockMethodsReturnValue($model, ['getExpiredAndEnabledSchedules'], [$scheduleDocument]);
         $dispatcher = $this->getMockObject('Symfony\Component\EventDispatcher\EventDispatcher', ['dispatch']);
 
@@ -39,9 +39,9 @@ class CronManagerTest extends LitvinabServiceTestCase
      */
     public function testGetSchedules()
     {
-        $scheduleDocument = $this->getMockObject('Litvinab\CronEventBundle\Document\Schedule');
+        $scheduleDocument = $this->getMockObject('Litvinab\Bundle\CronEventBundle\Document\Schedule');
 
-        $model = $this->getMockObject('Litvinab\CronEventBundle\Model\ScheduleModel', ['getAllSchedules']);
+        $model = $this->getMockObject('Litvinab\Bundle\CronEventBundle\Model\ScheduleModel', ['getAllSchedules']);
         $this->setMockMethodsReturnValue($model, ['getAllSchedules'], [$scheduleDocument]);
 
         $cronManager = new CronManager();
@@ -58,9 +58,9 @@ class CronManagerTest extends LitvinabServiceTestCase
      */
     public function testGetSchedulesByAdId()
     {
-        $scheduleDocument = $this->getMockObject('Litvinab\CronEventBundle\Document\Schedule');
+        $scheduleDocument = $this->getMockObject('Litvinab\Bundle\CronEventBundle\Document\Schedule');
 
-        $model = $this->getMockObject('Litvinab\CronEventBundle\Model\ScheduleModel', ['getSchedulesByAdId']);
+        $model = $this->getMockObject('Litvinab\Bundle\CronEventBundle\Model\ScheduleModel', ['getSchedulesByAdId']);
         $this->setMockMethodsReturnValue($model, ['getSchedulesByAdId'], [$scheduleDocument]);
 
         $cronManager = new CronManager();
@@ -77,9 +77,9 @@ class CronManagerTest extends LitvinabServiceTestCase
      */
     public function testUpdateSchedule()
     {
-        $scheduleDocument = $this->getMockObject('Litvinab\CronEventBundle\Document\Schedule');
+        $scheduleDocument = $this->getMockObject('Litvinab\Bundle\CronEventBundle\Document\Schedule');
 
-        $model = $this->getMockObject('Litvinab\CronEventBundle\Model\ScheduleModel', ['save']);
+        $model = $this->getMockObject('Litvinab\Bundle\CronEventBundle\Model\ScheduleModel', ['save']);
         $this->setMockMethodsReturnValue($model, ['save'], $scheduleDocument);
 
         $cronManager = new CronManager();
@@ -95,9 +95,9 @@ class CronManagerTest extends LitvinabServiceTestCase
      */
     public function testSetTimer()
     {
-        $scheduleDocument = $this->getMockObject('Litvinab\CronEventBundle\Document\Schedule');
+        $scheduleDocument = $this->getMockObject('Litvinab\Bundle\CronEventBundle\Document\Schedule');
 
-        $model = $this->getMockObject('Litvinab\CronEventBundle\Model\ScheduleModel', ['createScheduleTimer']);
+        $model = $this->getMockObject('Litvinab\Bundle\CronEventBundle\Model\ScheduleModel', ['createScheduleTimer']);
         $this->setMockMethodsReturnValue($model, ['createScheduleTimer'], $scheduleDocument);
 
         $cronManager = new CronManager();
@@ -113,9 +113,9 @@ class CronManagerTest extends LitvinabServiceTestCase
      */
     public function testSetEvent()
     {
-        $scheduleDocument = $this->getMockObject('Litvinab\CronEventBundle\Document\Schedule');
+        $scheduleDocument = $this->getMockObject('Litvinab\Bundle\CronEventBundle\Document\Schedule');
 
-        $model = $this->getMockObject('Litvinab\CronEventBundle\Model\ScheduleModel', ['createScheduleEvent']);
+        $model = $this->getMockObject('Litvinab\Bundle\CronEventBundle\Model\ScheduleModel', ['createScheduleEvent']);
         $this->setMockMethodsReturnValue($model, ['createScheduleEvent'], $scheduleDocument);
 
         $cronManager = new CronManager();
@@ -131,7 +131,7 @@ class CronManagerTest extends LitvinabServiceTestCase
      */
     public function deleteTimer()
     {
-        $model = $this->getMockObject('Litvinab\CronEventBundle\Model\ScheduleModel', ['removeTimer']);
+        $model = $this->getMockObject('Litvinab\Bundle\CronEventBundle\Model\ScheduleModel', ['removeTimer']);
 
         $cronManager = new CronManager();
         $cronManager->setScheduleModel($model);
@@ -146,7 +146,7 @@ class CronManagerTest extends LitvinabServiceTestCase
      */
     public function deleteEvent()
     {
-        $model = $this->getMockObject('Litvinab\CronEventBundle\Model\ScheduleModel', ['removeEvent']);
+        $model = $this->getMockObject('Litvinab\Bundle\CronEventBundle\Model\ScheduleModel', ['removeEvent']);
 
         $cronManager = new CronManager();
         $cronManager->setScheduleModel($model);
@@ -161,9 +161,9 @@ class CronManagerTest extends LitvinabServiceTestCase
      */
     public function testFindScheduleByAdId()
     {
-        $scheduleDocument = $this->getMockObject('Litvinab\CronEventBundle\Document\Schedule');
+        $scheduleDocument = $this->getMockObject('Litvinab\Bundle\CronEventBundle\Document\Schedule');
 
-        $model = $this->getMockObject('Litvinab\CronEventBundle\Model\ScheduleModel', ['findScheduleByAdId']);
+        $model = $this->getMockObject('Litvinab\Bundle\CronEventBundle\Model\ScheduleModel', ['findScheduleByAdId']);
         $this->setMockMethodsReturnValue($model, ['findScheduleByAdId'], $scheduleDocument);
 
         $cronManager = new CronManager();
@@ -179,9 +179,9 @@ class CronManagerTest extends LitvinabServiceTestCase
      */
     public function testDeleteSchedule()
     {
-        $scheduleDocument = $this->getMockObject('Litvinab\CronEventBundle\Document\Schedule');
+        $scheduleDocument = $this->getMockObject('Litvinab\Bundle\CronEventBundle\Document\Schedule');
 
-        $model = $this->getMockObject('Litvinab\CronEventBundle\Model\ScheduleModel', ['removeSchedule']);
+        $model = $this->getMockObject('Litvinab\Bundle\CronEventBundle\Model\ScheduleModel', ['removeSchedule']);
 
         $cronManager = new CronManager();
         $cronManager->setScheduleModel($model);

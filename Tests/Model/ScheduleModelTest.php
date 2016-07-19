@@ -1,17 +1,17 @@
 <?php
 
 
-namespace Litvinab\CronEventBundle\Tests\Model;
+namespace Litvinab\Bundle\CronEventBundle\Tests\Model;
 
 use Litvinab\Api10Bundle\Tests\TestCase\LitvinabServiceTestCase;
-use Litvinab\CronEventBundle\Model\ScheduleModel;
-use Litvinab\CronEventBundle\Document\Schedule as ScheduleDocument;
-use Litvinab\CronEventBundle\Repository\ScheduleRepository;
+use Litvinab\Bundle\CronEventBundle\Model\ScheduleModel;
+use Litvinab\Bundle\CronEventBundle\Document\Schedule as ScheduleDocument;
+use Litvinab\Bundle\CronEventBundle\Repository\ScheduleRepository;
 
 /**
  * Class ScheduleModelTest
  *
- * @package Litvinab\CronEventBundle\Tests\Model
+ * @package Litvinab\Bundle\CronEventBundle\Tests\Model
  */
 class ScheduleModelTest extends LitvinabServiceTestCase
 {
@@ -20,9 +20,9 @@ class ScheduleModelTest extends LitvinabServiceTestCase
      */
     public function testGetAllSchedules()
     {
-        $scheduleDocument = $this->getMockObject('Litvinab\CronEventBundle\Document\Schedule');
+        $scheduleDocument = $this->getMockObject('Litvinab\Bundle\CronEventBundle\Document\Schedule');
 
-        $repository = $this->getMockObject('Litvinab\CronEventBundle\Repository\ScheduleRepository', ['findAll']);
+        $repository = $this->getMockObject('Litvinab\Bundle\CronEventBundle\Repository\ScheduleRepository', ['findAll']);
         $this->setMockMethodsReturnValue($repository, ['findAll'], [$scheduleDocument]);
 
         $model = new ScheduleModel($repository);
@@ -38,12 +38,12 @@ class ScheduleModelTest extends LitvinabServiceTestCase
      */
     public function testGetScheduleByAdId()
     {
-        $scheduleDocument = $this->getMockObject('Litvinab\CronEventBundle\Document\Schedule');
+        $scheduleDocument = $this->getMockObject('Litvinab\Bundle\CronEventBundle\Document\Schedule');
 
         $queryBuilder = $this->getMockObject('Doctrine\MongoDB\Query\Query', ['getSingleResult']);
         $this->setMockMethodsReturnValue($queryBuilder, ['getSingleResult'], $scheduleDocument);
 
-        $repository = $this->getMockObject('Litvinab\CronEventBundle\Repository\ScheduleRepository', ['getSchedulesByAdId']);
+        $repository = $this->getMockObject('Litvinab\Bundle\CronEventBundle\Repository\ScheduleRepository', ['getSchedulesByAdId']);
         $this->setMockMethodsReturnValue($repository, ['getSchedulesByAdId'], $queryBuilder);
 
         $model = new ScheduleModel($repository);
@@ -58,9 +58,9 @@ class ScheduleModelTest extends LitvinabServiceTestCase
      */
     public function testUnexpiredSchedules()
     {
-        $scheduleDocument = $this->getMockObject('Litvinab\CronEventBundle\Document\Schedule');
+        $scheduleDocument = $this->getMockObject('Litvinab\Bundle\CronEventBundle\Document\Schedule');
 
-        $repository = $this->getMockObject('Litvinab\CronEventBundle\Repository\ScheduleRepository', ['findByScheduleStatus']);
+        $repository = $this->getMockObject('Litvinab\Bundle\CronEventBundle\Repository\ScheduleRepository', ['findByScheduleStatus']);
         $this->setMockMethodsReturnValue($repository, ['findByScheduleStatus'], [$scheduleDocument]);
 
         $model = new ScheduleModel($repository);
@@ -76,9 +76,9 @@ class ScheduleModelTest extends LitvinabServiceTestCase
      */
     public function testGetExpiredAndEnabledSchedules()
     {
-        $scheduleDocument = $this->getMockObject('Litvinab\CronEventBundle\Document\Schedule');
+        $scheduleDocument = $this->getMockObject('Litvinab\Bundle\CronEventBundle\Document\Schedule');
 
-        $repository = $this->getMockObject('Litvinab\CronEventBundle\Repository\ScheduleRepository', ['getExpiredAndEnabledSchedules']);
+        $repository = $this->getMockObject('Litvinab\Bundle\CronEventBundle\Repository\ScheduleRepository', ['getExpiredAndEnabledSchedules']);
         $this->setMockMethodsReturnValue($repository, ['getExpiredAndEnabledSchedules'], [$scheduleDocument]);
 
         $model = new ScheduleModel($repository);
@@ -94,7 +94,7 @@ class ScheduleModelTest extends LitvinabServiceTestCase
      */
     public function testUpdateStatuses()
     {
-        $repository = $this->getMockObject('Litvinab\CronEventBundle\Repository\ScheduleRepository', ['updateStatus']);
+        $repository = $this->getMockObject('Litvinab\Bundle\CronEventBundle\Repository\ScheduleRepository', ['updateStatus']);
 
         $model = new ScheduleModel($repository);
 
@@ -108,9 +108,9 @@ class ScheduleModelTest extends LitvinabServiceTestCase
      */
     public function testSaveSchedules()
     {
-        $scheduleDocument = $this->getMockObject('Litvinab\CronEventBundle\Document\Schedule');
+        $scheduleDocument = $this->getMockObject('Litvinab\Bundle\CronEventBundle\Document\Schedule');
 
-        $repository = $this->getMockObject('Litvinab\CronEventBundle\Repository\ScheduleRepository', ['save']);
+        $repository = $this->getMockObject('Litvinab\Bundle\CronEventBundle\Repository\ScheduleRepository', ['save']);
         $this->setMockMethodsReturnValue($repository, ['save'], $scheduleDocument);
 
         $model = new ScheduleModel($repository);
@@ -125,10 +125,10 @@ class ScheduleModelTest extends LitvinabServiceTestCase
      */
     public function testEnableSchedule()
     {
-        $scheduleDocument = $this->getMockObject('Litvinab\CronEventBundle\Document\Schedule', ['getStatus', 'setStatus']);
+        $scheduleDocument = $this->getMockObject('Litvinab\Bundle\CronEventBundle\Document\Schedule', ['getStatus', 'setStatus']);
         $this->setMockMethodsReturnValue($scheduleDocument, ['getStatus'], false);
 
-        $repository = $this->getMockObject('Litvinab\CronEventBundle\Repository\ScheduleRepository', ['save']);
+        $repository = $this->getMockObject('Litvinab\Bundle\CronEventBundle\Repository\ScheduleRepository', ['save']);
         $this->setMockMethodsReturnValue($repository, ['save'], $scheduleDocument);
 
         $model = new ScheduleModel($repository);
@@ -143,10 +143,10 @@ class ScheduleModelTest extends LitvinabServiceTestCase
      */
     public function testDisableSchedule()
     {
-        $scheduleDocument = $this->getMockObject('Litvinab\CronEventBundle\Document\Schedule', ['getStatus', 'setStatus']);
+        $scheduleDocument = $this->getMockObject('Litvinab\Bundle\CronEventBundle\Document\Schedule', ['getStatus', 'setStatus']);
         $this->setMockMethodsReturnValue($scheduleDocument, ['getStatus'], true);
 
-        $repository = $this->getMockObject('Litvinab\CronEventBundle\Repository\ScheduleRepository', ['save']);
+        $repository = $this->getMockObject('Litvinab\Bundle\CronEventBundle\Repository\ScheduleRepository', ['save']);
         $this->setMockMethodsReturnValue($repository, ['save'], $scheduleDocument);
 
         $model = new ScheduleModel($repository);
@@ -182,9 +182,9 @@ class ScheduleModelTest extends LitvinabServiceTestCase
      */
     public function testRemoveSchedule()
     {
-        $scheduleDocument = $this->getMockObject('Litvinab\CronEventBundle\Document\Schedule');
+        $scheduleDocument = $this->getMockObject('Litvinab\Bundle\CronEventBundle\Document\Schedule');
 
-        $repository = $this->getMockObject('Litvinab\CronEventBundle\Repository\ScheduleRepository', ['remove']);
+        $repository = $this->getMockObject('Litvinab\Bundle\CronEventBundle\Repository\ScheduleRepository', ['remove']);
 
         $model = new ScheduleModel($repository);
 
@@ -198,9 +198,9 @@ class ScheduleModelTest extends LitvinabServiceTestCase
      */
     public function testCreateScheduleEvent()
     {
-        $scheduleDocument = $this->getMockObject('Litvinab\CronEventBundle\Document\Schedule');
+        $scheduleDocument = $this->getMockObject('Litvinab\Bundle\CronEventBundle\Document\Schedule');
 
-        $repository = $this->getMockObject('Litvinab\CronEventBundle\Repository\ScheduleRepository', ['save']);
+        $repository = $this->getMockObject('Litvinab\Bundle\CronEventBundle\Repository\ScheduleRepository', ['save']);
         $this->setMockMethodsReturnValue($repository, ['save'], $scheduleDocument);
 
         $model = new ScheduleModel($repository);
@@ -215,9 +215,9 @@ class ScheduleModelTest extends LitvinabServiceTestCase
      */
     public function testCreateScheduleTimer()
     {
-        $scheduleDocument = $this->getMockObject('Litvinab\CronEventBundle\Document\Schedule');
+        $scheduleDocument = $this->getMockObject('Litvinab\Bundle\CronEventBundle\Document\Schedule');
 
-        $repository = $this->getMockObject('Litvinab\CronEventBundle\Repository\ScheduleRepository', ['save']);
+        $repository = $this->getMockObject('Litvinab\Bundle\CronEventBundle\Repository\ScheduleRepository', ['save']);
         $this->setMockMethodsReturnValue($repository, ['save'], $scheduleDocument);
 
         $model = new ScheduleModel($repository);
@@ -232,7 +232,7 @@ class ScheduleModelTest extends LitvinabServiceTestCase
      */
     public function testUpdateTimersStatus()
     {
-        $repository = $this->getMockObject('Litvinab\CronEventBundle\Repository\ScheduleRepository', ['updateTimersStatus', 'updateEventsStatus']);
+        $repository = $this->getMockObject('Litvinab\Bundle\CronEventBundle\Repository\ScheduleRepository', ['updateTimersStatus', 'updateEventsStatus']);
 
         $model = new ScheduleModel($repository);
 
@@ -246,7 +246,7 @@ class ScheduleModelTest extends LitvinabServiceTestCase
      */
     public function testUpdateEventStatus()
     {
-        $repository = $this->getMockObject('Litvinab\CronEventBundle\Repository\ScheduleRepository', ['updateTimersStatus', 'updateEventsStatus']);
+        $repository = $this->getMockObject('Litvinab\Bundle\CronEventBundle\Repository\ScheduleRepository', ['updateTimersStatus', 'updateEventsStatus']);
 
         $model = new ScheduleModel($repository);
 
@@ -260,7 +260,7 @@ class ScheduleModelTest extends LitvinabServiceTestCase
      */
     public function testUpdateAllTypeStatus()
     {
-        $repository = $this->getMockObject('Litvinab\CronEventBundle\Repository\ScheduleRepository', ['updateTimersStatus', 'updateEventsStatus']);
+        $repository = $this->getMockObject('Litvinab\Bundle\CronEventBundle\Repository\ScheduleRepository', ['updateTimersStatus', 'updateEventsStatus']);
 
         $model = new ScheduleModel($repository);
 
@@ -274,9 +274,9 @@ class ScheduleModelTest extends LitvinabServiceTestCase
      */
     public function testRemoveTimer()
     {
-        $scheduleDocument = $this->getMockObject('Litvinab\CronEventBundle\Document\Schedule');
+        $scheduleDocument = $this->getMockObject('Litvinab\Bundle\CronEventBundle\Document\Schedule');
 
-        $repository = $this->getMockObject('Litvinab\CronEventBundle\Repository\ScheduleRepository', ['findOneBy', 'remove']);
+        $repository = $this->getMockObject('Litvinab\Bundle\CronEventBundle\Repository\ScheduleRepository', ['findOneBy', 'remove']);
         $this->setMockMethodsReturnValue($repository, ['findOneBy'], $scheduleDocument);
 
         $model = new ScheduleModel($repository);
@@ -291,9 +291,9 @@ class ScheduleModelTest extends LitvinabServiceTestCase
      */
     public function testRemoveEvent()
     {
-        $scheduleDocument = $this->getMockObject('Litvinab\CronEventBundle\Document\Schedule');
+        $scheduleDocument = $this->getMockObject('Litvinab\Bundle\CronEventBundle\Document\Schedule');
 
-        $repository = $this->getMockObject('Litvinab\CronEventBundle\Repository\ScheduleRepository', ['findOneBy', 'remove']);
+        $repository = $this->getMockObject('Litvinab\Bundle\CronEventBundle\Repository\ScheduleRepository', ['findOneBy', 'remove']);
         $this->setMockMethodsReturnValue($repository, ['findOneBy'], $scheduleDocument);
 
         $model = new ScheduleModel($repository);
@@ -308,12 +308,12 @@ class ScheduleModelTest extends LitvinabServiceTestCase
      */
     public function testFindScheduleByAdId()
     {
-        $scheduleDocument = $this->getMockObject('Litvinab\CronEventBundle\Document\Schedule');
+        $scheduleDocument = $this->getMockObject('Litvinab\Bundle\CronEventBundle\Document\Schedule');
 
         $queryBuilder = $this->getMockObject('Doctrine\MongoDB\Query\Query', ['getSingleResult']);
         $this->setMockMethodsReturnValue($queryBuilder, ['getSingleResult'], $scheduleDocument);
 
-        $repository = $this->getMockObject('Litvinab\CronEventBundle\Repository\ScheduleRepository', ['findScheduleByAdId']);
+        $repository = $this->getMockObject('Litvinab\Bundle\CronEventBundle\Repository\ScheduleRepository', ['findScheduleByAdId']);
         $this->setMockMethodsReturnValue($repository, ['findScheduleByAdId'], $queryBuilder);
 
         $model = new ScheduleModel($repository);
@@ -328,9 +328,9 @@ class ScheduleModelTest extends LitvinabServiceTestCase
      */
     public function testDeleteSchedule()
     {
-        $scheduleDocument = $this->getMockObject('Litvinab\CronEventBundle\Document\Schedule');
+        $scheduleDocument = $this->getMockObject('Litvinab\Bundle\CronEventBundle\Document\Schedule');
 
-        $repository = $this->getMockObject('Litvinab\CronEventBundle\Repository\ScheduleRepository', ['remove']);
+        $repository = $this->getMockObject('Litvinab\Bundle\CronEventBundle\Repository\ScheduleRepository', ['remove']);
 
         $model = new ScheduleModel($repository);
 

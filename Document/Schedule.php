@@ -1,12 +1,12 @@
 <?php
-namespace Litvinab\CronEventBundle\Document;
+namespace Litvinab\Bundle\CronEventBundle\Document;
 
 use Doctrine\ODM\MongoDB\Mapping\Annotations as MongoDB;
 
 /**
  * CronTask document
  *
- * @MongoDB\Document(repositoryClass="Litvinab\CronEventBundle\Repository\ScheduleRepository")
+ * @MongoDB\Document(repositoryClass="Litvinab\Bundle\CronEventBundle\Repository\ScheduleRepository")
  */
 class Schedule
 {

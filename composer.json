@@ -16,8 +16,6 @@
     "symfony/security-bundle": "~2.1"
   },
   "autoload":{
-    "psr-0":{
-      "Litvinab\\CronEventBundle":""
-    }
+    "psr-4": { "Litvinab\\Bundle\\CronEventBundle\\": "" }
   }
 }

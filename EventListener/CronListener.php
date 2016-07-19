@@ -1,14 +1,14 @@
 <?php
 
-namespace Litvinab\CronEventBundle\EventListener;
+namespace Litvinab\Bundle\CronEventBundle\EventListener;
 
 use Symfony\Component\EventDispatcher\Event;
-use Litvinab\CronEventBundle\Service\CronManager;
+use Litvinab\Bundle\CronEventBundle\Service\CronManager;
 
 /**
  * Class CronListener
  *
- * @package Litvinab\CronEventBundle\EventListener
+ * @package Litvinab\Bundle\CronEventBundle\EventListener
  */
 class CronListener
 {

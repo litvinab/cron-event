@@ -1,14 +1,14 @@
 <?php
-namespace Litvinab\CronEventBundle\Model;
+namespace Litvinab\Bundle\CronEventBundle\Model;
 
 use Doctrine\ODM\MongoDB\DocumentRepository;
-use Litvinab\CronEventBundle\Repository\ScheduleRepository;
-use Litvinab\CronEventBundle\Document\Schedule;
+use Litvinab\Bundle\CronEventBundle\Repository\ScheduleRepository;
+use Litvinab\Bundle\CronEventBundle\Document\Schedule;
 
 /**
  * Class CronTaskModel
  *
- * @package Litvinab\CronEventBundle\Model
+ * @package Litvinab\Bundle\CronEventBundle\Model
  */
 class ScheduleModel
 {

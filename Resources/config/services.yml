@@ -2,8 +2,8 @@ imports:
     - { resource: logs.yml }
 
 parameters:
-       litvinab.cron-event.general.event.class: Litvinab\CronEventBundle\Events\LitvinabEvent
-       litvinab.cron-event.general.listener.class: Litvinab\CronEventBundle\EventListener\CronListener
+       litvinab.cron-event.general.event.class: Litvinab\Bundle\CronEventBundle\Events\LitvinabEvent
+       litvinab.cron-event.general.listener.class: Litvinab\Bundle\CronEventBundle\EventListener\CronListener
 
 services:
       litvinab.repository.schedule:
@@ -11,22 +11,22 @@ services:
          factory_service: doctrine_mongodb.odm.document_manager
          factory_method: getRepository
          arguments:
-           - Litvinab\CronEventBundle\Document\Schedule
+           - Litvinab\Bundle\CronEventBundle\Document\Schedule
 
       litvinab.model.schedule:
-         class: Litvinab\CronEventBundle\Model\ScheduleModel
+         class: Litvinab\Bundle\CronEventBundle\Model\ScheduleModel
          arguments:
            - "@litvinab.repository.schedule"
            - "@doctrine.odm.mongodb.document_manager"
 
       litvinab.cron-event.manager:
-         class: Litvinab\CronEventBundle\Service\CronManager
+         class: Litvinab\Bundle\CronEventBundle\Service\CronManager
          calls:
             - [setDispatcher, [@event_dispatcher]]
             - [setScheduleModel, [@litvinab.model.schedule]]
 
       kernel.listener.cron_manager:
-         class: Litvinab\CronEventBundle\EventListener\CronListener
+         class: Litvinab\Bundle\CronEventBundle\EventListener\CronListener
          arguments:
              - "@litvinab.cron-event.manager"
          tags:

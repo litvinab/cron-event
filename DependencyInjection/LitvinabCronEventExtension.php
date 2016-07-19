@@ -1,6 +1,6 @@
 <?php
 
-namespace Litvinab\CronEventBundle\DependencyInjection;
+namespace Litvinab\Bundle\CronEventBundle\DependencyInjection;
 
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\Config\FileLocator;

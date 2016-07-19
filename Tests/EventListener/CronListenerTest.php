@@ -1,15 +1,15 @@
 <?php
 
 
-namespace Litvinab\CronEventBundle\Tests\EventListener;
+namespace Litvinab\Bundle\CronEventBundle\Tests\EventListener;
 
 use Litvinab\Api10Bundle\Tests\TestCase\LitvinabServiceTestCase;
-use Litvinab\CronEventBundle\EventListener\CronListener;
+use Litvinab\Bundle\CronEventBundle\EventListener\CronListener;
 
 /**
  * Class CronListenerTest
  *
- * @package Litvinab\CronEventBundle\Tests\EventListener
+ * @package Litvinab\Bundle\CronEventBundle\Tests\EventListener
  */
 class CronListenerTest extends LitvinabServiceTestCase
 {
@@ -18,7 +18,7 @@ class CronListenerTest extends LitvinabServiceTestCase
      */
     public function testOnCron()
     {
-        $cronManager = $this->getMockObject('Litvinab\CronEventBundle\Service\CronManager', ['runSchedules']);
+        $cronManager = $this->getMockObject('Litvinab\Bundle\CronEventBundle\Service\CronManager', ['runSchedules']);
         $event = $this->getMockObject('Symfony\Component\EventDispatcher\Event');
 
         $cronListener = new CronListener($cronManager);

@@ -1,6 +1,6 @@
 <?php
 
-namespace Litvinab\CronEventBundle\DependencyInjection;
+namespace Litvinab\Bundle\CronEventBundle\DependencyInjection;
 
 use Symfony\Component\Config\Definition\Builder\TreeBuilder;
 use Symfony\Component\Config\Definition\ConfigurationInterface;

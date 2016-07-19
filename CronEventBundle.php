@@ -1,13 +1,13 @@
 <?php
 
-namespace Litvinab\CronEventBundle;
+namespace Litvinab\Bundle\CronEventBundle;
 
 use Symfony\Component\HttpKernel\Bundle\Bundle;
 
 /**
  * Class LitvinabCronEventBundle
  *
- * @package Litvinab\CronEventBundle
+ * @package Litvinab\Bundle\CronEventBundle
  */
 class LitvinabCronEventBundle extends Bundle
 {

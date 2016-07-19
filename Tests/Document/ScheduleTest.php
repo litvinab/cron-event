@@ -1,12 +1,12 @@
 <?php
 
-namespace Litvinab\CronEventBundle\Tests\Document;
-use Litvinab\CronEventBundle\Document\Schedule;
+namespace Litvinab\Bundle\CronEventBundle\Tests\Document;
+use Litvinab\Bundle\CronEventBundle\Document\Schedule;
 
 /**
  * Class ScheduleTest
  *
- * @package Litvinab\CronEventBundle\Tests\Document
+ * @package Litvinab\Bundle\CronEventBundle\Tests\Document
  */
 class ScheduleTest extends \PHPUnit_Framework_TestCase
 {

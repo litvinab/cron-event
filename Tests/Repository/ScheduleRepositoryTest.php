@@ -1,15 +1,15 @@
 <?php
 
 
-namespace Litvinab\CronEventBundle\Tests\Repository;
+namespace Litvinab\Bundle\CronEventBundle\Tests\Repository;
 
 use Litvinab\UserBundle\Tests\TestCase\RepositoryTestCase;
-use Litvinab\CronEventBundle\Document\Schedule;
+use Litvinab\Bundle\CronEventBundle\Document\Schedule;
 
 /**
  * Class ScheduleRepositoryTest
  *
- * @package Litvinab\CronEventBundle\Tests\Repository
+ * @package Litvinab\Bundle\CronEventBundle\Tests\Repository
  */
 class ScheduleRepositoryTest extends RepositoryTestCase
 {

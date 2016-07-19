@@ -1,6 +1,6 @@
 <?php
 
-namespace Litvinab\CronEventBundle\Command;
+namespace Litvinab\Bundle\CronEventBundle\Command;
 
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
@@ -11,7 +11,7 @@ use Symfony\Component\EventDispatcher\Event;
 /**
  * Class CronRunCommand
  *
- * @package Litvinab\CronEventBundle\Command
+ * @package Litvinab\Bundle\CronEventBundle\Command
  */
 class CronRunCommand extends ContainerAwareCommand
 {

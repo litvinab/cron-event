@@ -1,18 +1,18 @@
 <?php
 
-namespace Litvinab\CronEventBundle\Controller;
+namespace Litvinab\Bundle\CronEventBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
-use Litvinab\CronEventBundle\Document\CronTask;
+use Litvinab\Bundle\CronEventBundle\Document\CronTask;
 use Symfony\Component\HttpFoundation\Response;
-use Litvinab\CronEventBundle\Repository\CronScheduleRepository;
+use Litvinab\Bundle\CronEventBundle\Repository\CronScheduleRepository;
 
 /**
  * Contrtoller for test cron action
  *
  * Class CronEventManagerController
  *
- * @package Litvinab\CronEventBundle\Controller
+ * @package Litvinab\Bundle\CronEventBundle\Controller
  */
 class CronEventManagerController extends Controller
 {

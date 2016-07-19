@@ -1,16 +1,16 @@
 <?php
 
-namespace Litvinab\CronEventBundle\Service;
+namespace Litvinab\Bundle\CronEventBundle\Service;
 
 use Symfony\Component\EventDispatcher\EventDispatcherInterface;
-use Litvinab\CronEventBundle\Document\Schedule;
-use Litvinab\CronEventBundle\Model\ScheduleModel;
-use Litvinab\CronEventBundle\Events\CronEvent;
+use Litvinab\Bundle\CronEventBundle\Document\Schedule;
+use Litvinab\Bundle\CronEventBundle\Model\ScheduleModel;
+use Litvinab\Bundle\CronEventBundle\Events\CronEvent;
 
 /**
  * Class CronManager
  *
- * @package Litvinab\CronEventBundle\Service
+ * @package Litvinab\Bundle\CronEventBundle\Service
  */
 class CronManager
 {
