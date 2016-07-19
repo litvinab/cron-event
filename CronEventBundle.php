@@ -9,6 +9,6 @@ use Symfony\Component\HttpKernel\Bundle\Bundle;
  *
  * @package Litvinab\Bundle\CronEventBundle
  */
-class LitvinabCronEventBundle extends Bundle
+class CronEventBundle extends Bundle
 {
 }
