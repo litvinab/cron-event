@@ -57,7 +57,7 @@ class CronManager
 
             $event->setSchedule($schedule);
 
-            $this->dispatcher->dispatch('litvinab.cron-event.'.$schedule->getEvent(), $event);
+            $this->dispatcher->dispatch('cron_event.'.$schedule->getEvent(), $event);
         }
     }
 

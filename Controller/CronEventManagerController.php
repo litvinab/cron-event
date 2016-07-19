@@ -21,7 +21,7 @@ class CronEventManagerController extends Controller
      */
     public function indexAction()
     {
-        $cronManager = $this->get('litvinab.cron-event.manager');
+        $cronManager = $this->get('cron_event.manager');
 
         $timer = $cronManager->setTimer('My timer', 'test_timer', 3600);
         $event = $cronManager->setEvent('My event', 'test_event', '01-01-2015');
@@ -34,7 +34,7 @@ class CronEventManagerController extends Controller
      */
     public function showAction()
     {
-        $cronManager = $this->get('litvinab.cron-event.manager');
+        $cronManager = $this->get('cron_event.manager');
 
         $schedules = $cronManager->getSchedules();
 
@@ -48,7 +48,7 @@ class CronEventManagerController extends Controller
      */
     public function runAction()
     {
-        $cronManager = $this->get('litvinab.cron-event.manager');
+        $cronManager = $this->get('cron_event.manager');
 
         $cronManager->runSchedules();
 
@@ -60,7 +60,7 @@ class CronEventManagerController extends Controller
      */
     public function removeAction()
     {
-        $cronManager = $this->get('litvinab.cron-event.manager');
+        $cronManager = $this->get('cron_event.manager');
         $cronManager->deleteTimer('My timer');
         $cronManager->deleteTimer('My event');
 

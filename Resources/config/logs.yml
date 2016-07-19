@@ -1,30 +1,30 @@
 parameters:
-    litvinab.cron-event.streamhandler.class:        Monolog\Handler\StreamHandler
-    litvinab.cron-event.streamhandler.level:        %litvinab.cron-event.logger.class%::DEBUG
+    cron_event.streamhandler.class:        Monolog\Handler\StreamHandler
+    cron_event.streamhandler.level:        %cron_event.logger.class%::DEBUG
 
-    litvinab.cron-event.firephphandler.class:       Monolog\Handler\FirePHPHandler
+    cron_event.firephphandler.class:       Monolog\Handler\FirePHPHandler
 
-    litvinab.cron-event.logger.class:               Monolog\Logger
-    litvinab.cron-event.logger.name:                cron
-    litvinab.cron-event.logger.logs_file_path:      %kernel.logs_dir%/%litvinab.cron-event.logger.name%.log
+    cron_event.logger.class:               Monolog\Logger
+    cron_event.logger.name:                cron
+    cron_event.logger.logs_file_path:      %kernel.logs_dir%/%cron_event.logger.name%.log
 
 services:
-    litvinab.cron-event.streamhandler:
-        class: %litvinab.cron-event.streamhandler.class%
+    cron_event.streamhandler:
+        class: %cron_event.streamhandler.class%
         arguments:
-          - %litvinab.cron-event.logger.logs_file_path%
-          - %litvinab.cron-event.streamhandler.level%
+          - %cron_event.logger.logs_file_path%
+          - %cron_event.streamhandler.level%
 
-    litvinab.cron-event.firephphandler:
-        class: %litvinab.cron-event.firephphandler.class%
+    cron_event.firephphandler:
+        class: %cron_event.firephphandler.class%
 
-    litvinab.cron-event.logger.parent:
+    cron_event.logger.parent:
         abstract: true
-        class: %litvinab.cron-event.logger.class%
+        class: %cron_event.logger.class%
         calls:
-          - [pushHandler, [@litvinab.cron-event.streamhandler, @litvinab.cron-event.firephphandler]]
+          - [pushHandler, [@cron_event.streamhandler, @cron_event.firephphandler]]
 
-    litvinab.cron-event.logger:
-        parent: litvinab.cron-event.logger.parent
+    cron_event.logger:
+        parent: cron_event.logger.parent
         arguments:
-          - %litvinab.cron-event.logger.name%
+          - %cron_event.logger.name%

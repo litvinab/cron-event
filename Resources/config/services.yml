@@ -2,8 +2,8 @@ imports:
     - { resource: logs.yml }
 
 parameters:
-       litvinab.cron-event.general.event.class: Litvinab\Bundle\CronEventBundle\Events\LitvinabEvent
-       litvinab.cron-event.general.listener.class: Litvinab\Bundle\CronEventBundle\EventListener\CronListener
+       cron_event.general.event.class: Litvinab\Bundle\CronEventBundle\Events\LitvinabEvent
+       cron_event.general.listener.class: Litvinab\Bundle\CronEventBundle\EventListener\CronListener
 
 services:
       litvinab.repository.schedule:
@@ -19,7 +19,7 @@ services:
            - "@litvinab.repository.schedule"
            - "@doctrine.odm.mongodb.document_manager"
 
-      litvinab.cron-event.manager:
+      cron_event.manager:
          class: Litvinab\Bundle\CronEventBundle\Service\CronManager
          calls:
             - [setDispatcher, [@event_dispatcher]]
@@ -28,6 +28,6 @@ services:
       kernel.listener.cron_manager:
          class: Litvinab\Bundle\CronEventBundle\EventListener\CronListener
          arguments:
-             - "@litvinab.cron-event.manager"
+             - "@cron_event.manager"
          tags:
              - { name: kernel.event_listener, event: cron.run, method: onCron }

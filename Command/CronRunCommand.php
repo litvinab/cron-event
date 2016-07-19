@@ -32,7 +32,7 @@ class CronRunCommand extends ContainerAwareCommand
      */
     protected function execute(InputInterface $input, OutputInterface $output)
     {
-        $logger = $this->getContainer()->get('litvinab.cron-event.logger');
+        $logger = $this->getContainer()->get('cron_event.logger');
 
         $logger->addInfo('--------------------------- CRON BEGIN ---------------------------');
 

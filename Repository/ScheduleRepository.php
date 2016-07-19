@@ -158,8 +158,8 @@ class ScheduleRepository extends DocumentRepository
      */
     public function findScheduleByAdId($adId)
     {
-        return $this->createQueryBuilder('LitvinabCronEventBundle:Schedule')
-                    ->field('event')->equals('litvinab.cron-event.ad.not_published')
+        return $this->createQueryBuilder('CronEventBundle:Schedule')
+                    ->field('event')->equals('cron_event.ad.not_published')
                     ->field('parameters.id')->equals($adId)
                     ->getQuery();
     }
@@ -173,7 +173,7 @@ class ScheduleRepository extends DocumentRepository
      */
     public function getSchedulesByAdId($adId)
     {
-        return $this->createQueryBuilder('LitvinabCronEventBundle:Schedule')
+        return $this->createQueryBuilder('CronEventBundle:Schedule')
                     ->field('event')
                     ->equals('ad.expired')
                     ->field('parameters.id')

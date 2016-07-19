@@ -29,9 +29,9 @@ class ScheduleRepositoryTest extends RepositoryTestCase
         /** @var \Doctrine\ODM\MongoDB\SchemaManager $schemaManager */
         $schemaManager = $this->dm->getSchemaManager();
 
-        $schemaManager->dropDocumentCollection('LitvinabCronEventBundle:Schedule');
+        $schemaManager->dropDocumentCollection('CronEventBundle:Schedule');
 
-        $this->repository = $this->dm->getRepository('LitvinabCronEventBundle:Schedule');
+        $this->repository = $this->dm->getRepository('CronEventBundle:Schedule');
 
         $now = new \DateTime();
         $yesterday = $now->modify('-1 day'); // all my troubles seemed so far away
@@ -47,7 +47,7 @@ class ScheduleRepositoryTest extends RepositoryTestCase
         $schedule->setStartTimeExpired(false);
         $schedule->setStatus('unexpired');
         $schedule->setType('event');
-        $schedule->setEvent('litvinab.cron-event.ad.not_published');
+        $schedule->setEvent('cron_event.ad.not_published');
         $schedule->setParameters(['id' => 'test']);
 
         $this->dm->persist($schedule);
