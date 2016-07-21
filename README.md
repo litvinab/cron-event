@@ -18,7 +18,6 @@ cron:
     resource: "@CronEventBundle/Resources/config/routing.yml"
     prefix:   /cron
 ```    
-
 5. To add test timer (1 minute timer) and event go to `http://your-domain/cron/`
 
 6. Added schedules will be displayed on this page: `http://your-domain/cron/show`

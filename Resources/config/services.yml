@@ -13,7 +13,7 @@ services:
          arguments:
            - Litvinab\Bundle\CronEventBundle\Document\Schedule
 
-      cron-event.model.schedule:
+      cron_event.model.schedule:
          class: Litvinab\Bundle\CronEventBundle\Model\ScheduleModel
          arguments:
            - "@cron-event.repository.schedule"
