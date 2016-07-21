@@ -33,12 +33,13 @@ cron:
 ## Supported event types
 
 `timer` - event in application will be triggered after N milliseconds.
+
 `event` - event in application will be triggered in specified date and time.
 
 
 ## How to use
 
-### Set event in your code
+### 1. Set event in your code
 
 In controller:
 ```php
@@ -50,7 +51,9 @@ $cronManager = $this->get('cron_event.manager');
 $timer = $cronManager->setTimer('My timer', 'test_timer', 7200);
 ```
 
-### Add cron event subscriber
+### 2. Add cron event subscriber
+
+Of course you are able to create event listeners if you wish.
 
 services.yml:
 ```php
@@ -120,8 +123,9 @@ class CronSubscriber implements EventSubscriberInterface
 } 
 ```
 
-### Check logs
+### 3. Check logs
 
 CronEvent bundle providing it's own logger. Service name of logger is `cron_event.logger`.
+
 `onCronTestEvent` string should be appeared in `app/logs/cron.log` file after 2-3 minutes.
 
