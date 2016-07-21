@@ -2,7 +2,7 @@
   "name": "litvinab/cron-event",
   "type": "symfony-bundle",
   "description": "Current symfony2 bundle generates events inside the application based on timers stored in DB.",
-  "keywords": ["Cron events"],
+  "keywords": ["Cron event, Event, Cron"],
   "homepage": "https://github.com/litvinab/cron-event",
   "authors": [
     {
