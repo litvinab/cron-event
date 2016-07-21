@@ -6,7 +6,7 @@ parameters:
        cron_event.general.listener.class: Litvinab\Bundle\CronEventBundle\EventListener\CronListener
 
 services:
-      cron-event.repository.schedule:
+      cron_event.repository.schedule:
          class: Doctrine\ODM\DocumentRepository
          factory_service: doctrine_mongodb.odm.document_manager
          factory_method: getRepository
@@ -16,14 +16,14 @@ services:
       cron_event.model.schedule:
          class: Litvinab\Bundle\CronEventBundle\Model\ScheduleModel
          arguments:
-           - "@cron-event.repository.schedule"
+           - "@cron_event.repository.schedule"
            - "@doctrine.odm.mongodb.document_manager"
 
       cron_event.manager:
          class: Litvinab\Bundle\CronEventBundle\Service\CronManager
          calls:
             - [setDispatcher, [@event_dispatcher]]
-            - [setScheduleModel, [@cron-event.model.schedule]]
+            - [setScheduleModel, [@cron_event.model.schedule]]
 
       kernel.listener.cron_manager:
          class: Litvinab\Bundle\CronEventBundle\EventListener\CronListener
