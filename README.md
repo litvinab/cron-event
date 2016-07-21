@@ -66,7 +66,8 @@ services:
             - { name: kernel.event_subscriber }
 ```
 
-/YourBundle/EventSubscriber/CronSubscriber.php
+
+/YourBundle/EventSubscriber/CronSubscriber.php:
 ```php
 <?php
 namespace AppBundle\EventSubscriber;
