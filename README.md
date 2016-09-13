@@ -47,7 +47,7 @@ $cronManager = $this->get('cron_event.manager');
 
 // set timer with: human name, name, period 
 // name of the symfony event: `cron_event.` + name
-$timer = $cronManager->setTimer('My timer', 'test_timer', 7200);
+$timer = $cronManager->setTimer('My timer', 'test_timer', 60);
 ```
 
 ### 2. Add cron event subscriber
