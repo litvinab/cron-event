@@ -129,3 +129,9 @@ CronEvent bundle providing it's own logger. Service name of logger is `cron_even
 
 `onCronTestEvent` string should be appeared in `app/logs/cron.log` file after 2-3 minutes.
 
+
+## Console Commands
+
+`cron:run` - this command should be launched each minute or another period of time in `crontab`;
+
+`cron:list` - list all schedules;
