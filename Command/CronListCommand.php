@@ -51,15 +51,18 @@ class CronListCommand extends ContainerAwareCommand
             $endDate    = !is_null($s->getEndTime()) ? $s->getEndTime()->format('Y-m-d H:i:s') : '';
             $eventName  = 'cron_event.'.$s->getEvent();
 
-            $params = '';
-            foreach($s->getParameters() AS $key => $value) {
-                $params .= '['.$key.'] => '.$value."\n";
-            }
+            $paramsStr = '';
+            $params = $s->getParameters();
 
+            if(count($params) > 0) {
+                foreach($params AS $key => $value) {
+                    $paramsStr .= '['.$key.'] => '.$value."\n";
+                }
+            }
 
             $rows[] = array(
                 $eventName,
-                $params,
+                $paramsStr,
                 $s->getType(),
                 $s->getStatus(),
                 $startDate,
