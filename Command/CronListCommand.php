@@ -37,6 +37,7 @@ class CronListCommand extends ContainerAwareCommand
 
         $headers = array(
             'Name',
+            'Parameters',
             'Type',
             'Event',
             'Enabled',
@@ -51,9 +52,11 @@ class CronListCommand extends ContainerAwareCommand
             $startDate  = !is_null($s->getStartTime()) ? $s->getStartTime()->date : '';
             $endDate    = !is_null($s->getEndTime()) ? $s->getEndTime()->format('Y-m-d H:i:s') : '';
             $eventName  = 'cron_event.'.$s->getEvent();
+            $params     = print_r($s->getParameters(), true);
 
             $rows[] = array(
                 $s->getName(),
+                $params,
                 $s->getType(),
                 $eventName,
                 $s->getEnabled(),
